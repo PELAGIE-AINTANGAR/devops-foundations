@@ -1,0 +1,8 @@
+node_modules
+public
+nginx
+.env
+.git
+.gitignore
+docs
+Dockerfile
