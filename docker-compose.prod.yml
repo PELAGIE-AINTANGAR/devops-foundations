@@ -1,0 +1,27 @@
+services:
+  backend:
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: "256M"
+    restart: unless-stopped
+
+  frontend:
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: "128M"
+    restart: unless-stopped
+
+  postgres:
+    restart: unless-stopped
+
+  redis:
+    restart: unless-stopped
+
+  mailhog:
+    restart: unless-stopped
