@@ -59,27 +59,17 @@ app.get("/db", (req, res) => {
     });
 });
 
+
 app.get("/cache", async (req, res) => {
-    
-    try {
-       
-        if (!client.isOpen){
-            await client.connect();
-            const visits = await client.incr("visits");
-            res.json({
-                status: "connected",
-                visits,
-            });
-        }
-            
-    } catch (e) {
-        res.status(503).json({
-        status: "error",
-        error: "redis_connection_failed",
-        message: e.message,
-        });
-    }
+  try {
+    if (!client.isOpen) await client.connect();
+    const visits = await client.incr("visits");
+    res.json({ status: "connected", visits });
+  } catch (e) {
+    res.status(503).json({ status: "error", error: "redis_connection_failed", message: e.message });
+  }
 });
+
 app.post("/contact", async (req, res) => {
     const { name, email, message } = req.body || {};
     try {
