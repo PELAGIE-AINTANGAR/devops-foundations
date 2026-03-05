@@ -6,6 +6,7 @@ WORKDIR /build
 COPY public ./public
 COPY nginx ./nginx
 
+
 ########## production ##########
 FROM nginx:1.27-alpine AS production
 

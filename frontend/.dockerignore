@@ -1,8 +1,10 @@
 node_modules
-public
-nginx
+dist
+build
 .env
 .git
 .gitignore
+docker-compose.yml
+npm-debug.log*
 docs
 Dockerfile
