@@ -1,6 +1,4 @@
-// En prod avec Traefik, tu utiliseras typiquement api.localhost.
-// En dev “pur compose”, on laisse configurable via une variable globale.
-const API_BASE = window.API_BASE || "http://api.localhost";
+const API_BASE = window.API_BASE || "/api";
 
 function setStatus(el, ok, label) {
   el.textContent = label + (ok ? " OK" : " DOWN");
@@ -40,7 +38,8 @@ async function refresh() {
     const data = await ping("/cache");
     setStatus(cacheEl, true, "Cache:");
     visitsEl.textContent = `Visits: ${data.visits}`;
-  } catch {
+  } catch (err) {
+    console.error("CACHE ERROR:", err);     
     setStatus(cacheEl, false, "Cache:");
     visitsEl.textContent = "Visits: N/A";
   }
