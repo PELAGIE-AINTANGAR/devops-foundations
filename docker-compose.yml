@@ -29,11 +29,16 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    ports:
+      - "3000:3000"
 
   frontend:
     build: ./frontend
     networks:
       - frontend
+      - backend
+    ports:
+      - "8080:8080"
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/"]
       interval: 10s
@@ -96,6 +101,9 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    ports:
+    - "1025:1025"
+    - "8025:8025"
 
 volumes:
   pg_data:
