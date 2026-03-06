@@ -1,0 +1,13 @@
+services:
+  backend:
+    command: ["npm", "run", "dev"]
+    volumes:
+      - ./backend/src:/app/src:ro
+      - ./backend/package.json:/app/package.json:ro
+      - ./backend/package-lock.json:/app/package-lock.json:ro
+    environment:
+      - NODE_ENV=development
+
+  frontend:
+    volumes:
+      - ./frontend/public:/usr/share/nginx/html:ro

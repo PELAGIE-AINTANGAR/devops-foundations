@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevOps Foundations – Dashboard</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>DevOps Foundations – Dashboard</h1>
+
+    <section class="card">
+      <h2>Status</h2>
+      <ul>
+        <li id="backendStatus">Backend: …</li>
+        <li id="dbStatus">Database: …</li>
+        <li id="cacheStatus">Cache: …</li>
+      </ul>
+      <p id="visits">Visits: …</p>
+      <button id="refresh">Refresh</button>
+    </section>
+
+    <section class="card">
+      <h2>Contact</h2>
+      <form id="contactForm">
+        <label>
+          Name
+          <input name="name" />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" />
+        </label>
+        <label>
+          Message
+          <textarea name="message"></textarea>
+        </label>
+        <button type="submit">Send</button>
+        <p id="contactResult"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
