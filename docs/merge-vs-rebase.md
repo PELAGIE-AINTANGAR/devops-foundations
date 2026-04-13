@@ -87,3 +87,88 @@ pelagie@pelagie-HP-EliteBook-830-G6:~/projet_devops/devops-foundations$ git log 
 
 - **Rebase strictement interdit** sur les branches partagées `develop`
   et `main` afin d’éviter toute réécriture de l’historique.
+
+
+
+
+
+# Merge vs Rebase
+
+## Merge
+
+Le merge combine deux branches en conservant l’historique complet.
+
+Exemple :
+
+```bash
+git checkout develop
+git merge feature/backend
+```
+
+Résultat :
+
+* historique complet conservé
+* commit de merge visible
+
+### Avantages
+
+* historique fidèle
+* simple à utiliser
+* recommandé en travail collaboratif
+
+### Inconvénients
+
+* historique parfois plus chargé
+
+---
+
+## Rebase
+
+Le rebase rejoue les commits sur une nouvelle base.
+
+Exemple :
+
+```bash
+git checkout feature/backend
+git rebase develop
+```
+
+### Avantages
+
+* historique linéaire
+* lecture plus simple
+
+### Inconvénients
+
+* réécrit l’historique
+* plus risqué sur branches partagées
+
+---
+
+## Politique choisie pour ce projet
+
+Merge est privilégié.
+
+### Justification
+
+* conservation des étapes du projet
+* meilleure traçabilité pédagogique
+* plus simple pour démonstration scolaire
+
+---
+
+## Exemple d’utilisation
+
+### Merge utilisé pour intégrer frontend :
+
+```bash
+git merge feature/frontend-dashboard
+```
+
+### Rebase possible avant merge :
+
+```bash
+git rebase develop
+```
+
+Puis merge final.
