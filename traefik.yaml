@@ -1,0 +1,35 @@
+# provider:
+#   docker:
+#     endpoint: "unix:///var/run/docker.sock"
+#     exposedByDefault: false
+#     watch: true
+#     network: traefik
+#     defaultRule: "Host(`{{ trimPrefix `/` .Name }}.localhost`)"
+#     constraints:
+#       - "tag=traefik.enable=true"
+api:
+  dashboard: true
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+    watch: true
+
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true
+
+  websecure:
+    address: ":443"
+
+tls:
+  certificates:
+    - certFile: /certs/localhost.pem
+      keyFile: /certs/localhost-key.pem

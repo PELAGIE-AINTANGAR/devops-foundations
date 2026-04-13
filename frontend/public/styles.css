@@ -1,0 +1,10 @@
+body { font-family: system-ui, sans-serif; margin: 0; background:#f6f7fb; }
+.container { max-width: 860px; margin: 40px auto; padding: 0 16px; }
+h1 { margin-bottom: 16px; }
+.card { background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.06); margin: 16px 0; }
+ul { padding-left: 18px; }
+label { display:block; margin: 10px 0; }
+input, textarea { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #ddd; }
+button { padding: 10px 14px; border: 0; border-radius: 10px; cursor: pointer; }
+.ok { color: #0a7a2f; }
+.down { color: #b00020; }
